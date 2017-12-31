@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-
 var PHOTODATA = [{
     id: 1,
     category: 'Cats',
@@ -55,7 +52,6 @@ class CategorySection extends Component {
     getValonClick(e) {
         var val = e.target.innerHTML
         var array_filtered = [];
-        this.setState({ category: this.props.children })
         array_filtered = PHOTODATA.filter(function (value) {
             return value.category === val
         })
@@ -99,23 +95,17 @@ class CategorySection extends Component {
 export { CategorySection }
 
 class Images extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const { imgsources } = this.props;
         const source = require(`../images/${imgsources}`)
         return (
-            <img className='imagesAll' src={source} />
+            <img className='imagesAll' alt = '' src={source} />
         )
     }
 }
 export { Images }
 
 class Application extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div>
